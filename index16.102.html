@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Fajny skrypcik</title>
+  </head>
+  <body>
+    <button id="guzik">Dodaj teskt</button>
+    <div id="kontener"></div>
+    <script>
+      i = 1;
+      const guzik = document.querySelector('#guzik');
+      guzik.addEventListener('click', function() {
+        const akapit = document.createElement('p');
+        const img = document.createElement('img');
+        const tekst = document.createTextNode(
+          `tekst w akapicie nr ${i} (kliknij żeby mnie usunąć)`
+        );
+        i++;
+
+        img.src = `https://picsum.photos/200/100?random=${i}`;
+        akapit.style.padding = '1em';
+        akapit.style.color = '#fff';
+        akapit.style.backgroundColor = '#acac00';
+        akapit.style.width = '40%';
+        akapit.style.height = '100px';
+        akapit.style.margin = 'auto';
+        akapit.style.marginBottom = '0,5em';
+        akapit.style.textAlign = 'center';
+        akapit.style.fontFamily = 'Arial';
+        akapit.style.display = 'flex';
+        akapit.style.justifyContent = 'space-around';
+        akapit.style.alignItems = 'center';
+
+        akapit.appendChild(tekst);
+        akapit.appendChild(img);
+        akapit.addEventListener('click', function() {
+          this.remove();
+        });
+        document.querySelector('#kontener').appendChild(akapit);
+      });
+    </script>
+  </body>
+</html>
